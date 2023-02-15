@@ -25,7 +25,7 @@ class _ProblemSelectScreenState extends State<ProblemSelectScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("문제를 골라주세요!"),
+        title: const Text("문제를 골라주세요."),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
