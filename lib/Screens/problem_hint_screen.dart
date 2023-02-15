@@ -64,53 +64,15 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
               for (var choice in Problems.listChoices[widget.index - 1])
                 Column(
                   children: [
-                    Container(
-                      color: Colors.pink,
-                      child: Row(
-                        children: [
-                          CircleAvatar(
-                            backgroundColor: Colors.grey.shade300,
-                            child: Text(
-                              "${Problems.listChoices[widget.index - 1].indexOf(choice) + 1}",
-                              style: const TextStyle(
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.black),
-                            ),
-                          ),
-                          Gaps.h20,
-                          Expanded(
-                            // height: 100,
-                            child: Container(
-                              // height: 100,
-                              color: Colors.amber,
-                              child: Column(
-                                mainAxisAlignment: MainAxisAlignment.center,
-                                crossAxisAlignment: CrossAxisAlignment.start,
-                                children: [
-                                  Container(
-                                    color: Colors.green,
-                                    height: 50,
-                                    width: 100,
-
-                                    // alignment: Alignment.centerLeft,
-                                    child: TeXView(
-                                      style: const TeXViewStyle(
-                                          backgroundColor: Colors.blue),
-                                      child: TeXViewDocument(
-                                        style: const TeXViewStyle(
-                                            backgroundColor: Colors.grey),
-                                        choice,
-                                      ),
-                                    ),
-                                  ),
-                                ],
-                              ),
-                            ),
-                          )
-                        ],
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: TeXView(
+                        child: TeXViewDocument(
+                          "\\(\\textcircled{${Problems.listChoices[widget.index - 1].indexOf(choice) + 1}}\\)   $choice",
+                        ),
                       ),
                     ),
-                    Gaps.v20
+                    Gaps.v20,
                   ],
                 ),
               Gaps.v20,
