@@ -49,6 +49,19 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
               ),
               Gaps.v20,
               TeXView(
+                style: const TeXViewStyle(
+                  margin: TeXViewMargin.all(10),
+                  elevation: 10,
+                  borderRadius: TeXViewBorderRadius.all(25),
+                  border: TeXViewBorder.all(
+                    TeXViewBorderDecoration(
+                        borderColor: Colors.blue,
+                        borderStyle: TeXViewBorderStyle.solid,
+                        borderWidth: 5),
+                  ),
+                  backgroundColor: Colors.white,
+                ),
+                renderingEngine: const TeXViewRenderingEngine.katex(),
                 child: TeXViewDocument(
                   Problems.listProblem[widget.index - 1],
                 ),
@@ -75,6 +88,8 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
                         Gaps.h20,
                         Expanded(
                           child: TeXView(
+                            renderingEngine:
+                                const TeXViewRenderingEngine.katex(),
                             child: TeXViewDocument(
                               choice,
                             ),
@@ -96,6 +111,7 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
                   child: Column(
                     children: [
                       TeXView(
+                        renderingEngine: const TeXViewRenderingEngine.katex(),
                         child: TeXViewDocument(
                           hint,
                         ),
