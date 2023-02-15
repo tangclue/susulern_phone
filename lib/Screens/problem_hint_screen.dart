@@ -49,7 +49,7 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
               ),
               Gaps.v20,
               SizedBox(
-                height: Sizes.size80 * 2,
+                height: Sizes.size80 * 3,
                 child: TeXView(
                   child: TeXViewDocument(
                     Problems.listProblem[widget.index - 1],

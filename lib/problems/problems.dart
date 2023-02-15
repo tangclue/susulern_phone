@@ -207,9 +207,8 @@ class Problems {
   ];
 
   static String problem21 =
-      r'''그림과 같이 삼각형 $ABC$ 에서 선분 $AB$ 위의 점 $D$ 에 대하여 $BD=2AD$ 이다. 점 $A$  에서 선분 $CD$ 에 내린 수선의 발 $E$ 에 대하여 $AE=4, BE=CE=10$ 일 때, 삼각형 $ABC$ 의 넓이는?
-
-(단, $∠CAB > 90\degree$)''';
+      r'''그림과 같이 삼각형 $ABC$ 에서 선분 $AB$ 위의 점 $D$ 에 대하여 $BD=2AD$ 이다. 점 $A$  에서 선분 $CD$ 에 내린 수선의 발 $E$ 에 대하여 $AE=4, BE=CE=10$ 일 때, 
+      삼각형 $ABC$ 의 넓이는? <br> (단, $∠CAB > 90\degree$)''';
   static List<String> hints21 = ["hint1", "hint2", "hint3"];
   static List<Image> images21 = [Image.asset('assets/problem_image/21.png')];
   static List<String> choices21 = ["69", "72", "75", "78", "81"];
