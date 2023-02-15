@@ -6,15 +6,15 @@ import 'package:susulern_phone/Constants/sizes.dart';
 
 import '../problems/problems.dart';
 
-class ProblemHintScreen extends StatefulWidget {
-  const ProblemHintScreen({super.key, required this.index});
+class ExampleScreen extends StatefulWidget {
+  const ExampleScreen({super.key, required this.index});
   final int index;
 
   @override
-  State<ProblemHintScreen> createState() => _ProblemHintScreenState();
+  State<ExampleScreen> createState() => _ExampleScreenState();
 }
 
-class _ProblemHintScreenState extends State<ProblemHintScreen> {
+class _ExampleScreenState extends State<ExampleScreen> {
   int hint_index = 0;
   int hint_max = 0;
 
@@ -81,7 +81,7 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
                           Expanded(
                             // height: 100,
                             child: Container(
-                              // height: 100,
+                              height: 100,
                               color: Colors.amber,
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
