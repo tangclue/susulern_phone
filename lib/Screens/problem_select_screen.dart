@@ -28,24 +28,38 @@ class _ProblemSelectScreenState extends State<ProblemSelectScreen> {
         title: const Text("문제를 골라주세요."),
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(
-            vertical: Sizes.size48, horizontal: Sizes.size24),
-        child: SingleChildScrollView(
-          child: Column(children: [
-            for (var index = 1;
-                index < Problems.listProblem.length + 1;
-                index++)
-              Column(children: [
-                SelectProblemButton(
-                  function: _onTapProbplem,
-                  text: "문제",
-                  index: index,
-                ),
-                Gaps.v16,
-              ]),
-          ]),
-        ),
-      ),
+          padding: const EdgeInsets.symmetric(
+              vertical: Sizes.size48, horizontal: Sizes.size24),
+          child: ListView.separated(
+            itemCount: Problems.listProblem.length,
+            itemBuilder: (context, index) {
+              return SelectProblemButton(
+                function: _onTapProbplem,
+                text: "문제",
+                index: index + 1,
+              );
+            },
+            separatorBuilder: (context, index) {
+              return Gaps.v16;
+            },
+          )
+
+          // SingleChildScrollView(
+          //   child: Column(children: [
+          //     for (var index = 1;
+          //         index < Problems.listProblem.length + 1;
+          //         index++)
+          //       Column(children: [
+          //         SelectProblemButton(
+          //           function: _onTapProbplem,
+          //           text: "문제",
+          //           index: index,
+          //         ),
+          //         Gaps.v16,
+          //       ]),
+          //   ]),
+          // ),
+          ),
     );
   }
 }

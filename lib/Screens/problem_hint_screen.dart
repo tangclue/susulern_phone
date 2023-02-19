@@ -58,15 +58,22 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
       case 0:
         return const Text(
           "용어 힌트",
-          style: TextStyle(fontSize: Sizes.size16),
+          style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w800),
         );
 
       case 1:
-        return const Text("개념 힌트", style: TextStyle(fontSize: Sizes.size16));
+        return const Text(
+          "개념 힌트",
+          style: TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w800),
+        );
       case 2:
-        return const Text("해설 힌트", style: TextStyle(fontSize: Sizes.size16));
+        return const Text("해설 힌트",
+            style:
+                TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w800));
       default:
-        return const Text("추가 힌트", style: TextStyle(fontSize: Sizes.size16));
+        return const Text("추가 힌트",
+            style:
+                TextStyle(fontSize: Sizes.size16, fontWeight: FontWeight.w800));
     }
   }
 

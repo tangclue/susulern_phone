@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:susulern_phone/Screens/login_screen.dart';
+import 'package:susulern_phone/Screens/problem_select_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,6 +13,6 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
         theme: ThemeData(
             primarySwatch: Colors.blue, scaffoldBackgroundColor: Colors.white),
-        home: const LoginScreen());
+        home: const ProblemSelectScreen());
   }
 }
