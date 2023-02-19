@@ -20,8 +20,9 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
 
   String _problem = "";
   List _listImages = [];
-  List _listChices = [];
+  List _listChoices = [];
   List _listHints = [];
+  Map _hintImg = {};
 
   void _onHintPressed(context) {
     if (hintIndex < hintMax) {
@@ -38,16 +39,35 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
 
     _problem = Problems.listProblem[widget.index - 1];
     _listImages = Problems.listImages[widget.index - 1];
-    _listChices = Problems.listChoices[widget.index - 1];
+    _listChoices = Problems.listChoices[widget.index - 1];
     _listHints = Problems.listHints[widget.index - 1];
+    _hintImg = Problems.listHintImg[widget.index - 1];
   }
 
   void clearExpressions() {
     _problem = "";
     _listImages = [];
-    _listChices = [];
+    _listChoices = [];
     _listHints = [];
+    _hintImg = {};
     setState(() {});
+  }
+
+  Widget hintTypeTextWidget(int i) {
+    switch (i) {
+      case 0:
+        return const Text(
+          "용어 힌트",
+          style: TextStyle(fontSize: Sizes.size16),
+        );
+
+      case 1:
+        return const Text("개념 힌트", style: TextStyle(fontSize: Sizes.size16));
+      case 2:
+        return const Text("해설 힌트", style: TextStyle(fontSize: Sizes.size16));
+      default:
+        return const Text("추가 힌트", style: TextStyle(fontSize: Sizes.size16));
+    }
   }
 
   @override
@@ -87,7 +107,7 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
                     Column(
                       children: [image, Gaps.v20],
                     ),
-                  for (var i = 0; i < _listChices.length; i++)
+                  for (var i = 0; i < _listChoices.length; i++)
                     Column(
                       children: [
                         Padding(
@@ -96,29 +116,32 @@ class _ProblemHintScreenState extends State<ProblemHintScreen> {
                             child: TeXViewDocument(
                               Problems.listChoicesNumber[i] +
                                   Problems.gap +
-                                  _listChices[i],
+                                  _listChoices[i],
                             ),
                           ),
                         ),
                         Gaps.v20,
                       ],
                     ),
-                  Gaps.v20,
-                  for (var hint in _listHints)
+                  Gaps.v10,
+                  for (var i = 0; i < _listHints.length; i++)
                     AnimatedOpacity(
                       duration: const Duration(milliseconds: 300),
-                      opacity: hintIndex > _listHints.indexOf(hint) ? 1 : 0,
+                      opacity: hintIndex > i ? 1 : 0,
                       child: Column(
                         children: [
+                          hintTypeTextWidget(i),
+                          Gaps.v20,
                           SizedBox(
-                            height: 100,
+                            height: 150,
                             child: TeXView(
                               child: TeXViewDocument(
-                                hint,
+                                _listHints[i],
                               ),
                             ),
                           ),
-                          Gaps.v20,
+                          _hintImg[i + 1] ?? Gaps.v10,
+                          Gaps.v40,
                         ],
                       ),
                     ),
